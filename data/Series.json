@@ -2,275 +2,271 @@
     {
         "name": "After Life",
         "description": "After Life est une série dramatique et comique qui suit Tony, un homme essayant de surmonter la perte de sa femme tout en naviguant dans les défis de la vie quotidienne.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3d/After_Life_title_card.jpg"
+        "image": "/RECO/image/AfterLife.jpg"
     },
     {
         "name": "Arcane",
         "description": "Arcane est une série animée de Netflix située dans l'univers de League of Legends. Elle explore les origines de personnages emblématiques comme Jinx et Vi, tout en mettant en lumière le conflit entre la ville prospère de Piltover et les bas-fonds de Zaun.",
-        "image": "https://static.wikia.nocookie.net/leagueoflegends/images/4/4c/Arcane_Poster.jpg/revision/latest?cb=20211022155423"
+        "image": "/RECO/image/Arcane.jpg"
     },
     {
         "name": "Breaking Bad",
         "description": "Breaking Bad suit l'histoire de Walter White, un professeur de chimie devenu fabricant de méthamphétamine, et de son partenaire Jesse Pinkman, alors qu'ils naviguent dans le monde dangereux du crime.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/6/61/Breaking_Bad_title_card.png"
+        "image": "/RECO/image/BreakingBad.jpg"
     },
     {
         "name": "Stranger Things",
         "description": "Stranger Things est une série de science-fiction qui se déroule dans les années 80. Elle suit un groupe d'enfants confrontés à des événements surnaturels dans leur petite ville.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/f/f7/Stranger_Things_season_4.jpg"
+        "image": "/RECO/image/StrangerThings.jpg"
     },
     {
         "name": "The Crown",
         "description": "The Crown retrace la vie de la reine Elizabeth II et les événements marquants de son règne, mêlant drame historique et intrigues politiques.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3e/The_Crown_season_4.jpg"
+        "image": "/RECO/image/TheCrown.jpg"
     },
     {
         "name": "The Mandalorian",
         "description": "The Mandalorian suit les aventures d'un chasseur de primes solitaire dans l'univers Star Wars, alors qu'il protège un mystérieux enfant connu sous le nom de Grogu.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/c/c7/The_Mandalorian_season_2_poster.jpg"
+        "image": "/RECO/image/TheMandalorian.jpg"
     },
     {
         "name": "Game of Thrones",
         "description": "Game of Thrones est une série épique qui explore les luttes de pouvoir entre différentes familles nobles pour le contrôle du Trône de Fer dans le royaume de Westeros.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg"
+        "image": "/RECO/image/GameofThrones.jpg"
     },
     {
         "name": "The Witcher",
         "description": "The Witcher suit Geralt de Riv, un chasseur de monstres solitaire, dans un monde fantastique rempli de magie, de créatures et de conflits politiques.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/1/1e/The_Witcher_title_card.png"
+        "image": "/RECO/image/TheWitcher.jpg"
     },
     {
         "name": "The Office (US)",
         "description": "The Office est une comédie qui suit le quotidien hilarant des employés d'une entreprise de papier, Dunder Mifflin, à Scranton, en Pennsylvanie.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/8/80/The_Office_US_logo.svg"
+        "image": "/RECO/image/TheOfficeUS.jpg"
     },
     {
         "name": "The Boys",
         "description": "The Boys est une série satirique qui explore un monde où les super-héros abusent de leurs pouvoirs, et un groupe de justiciers tente de les arrêter.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/a/a8/The_Boys_title_card.png"
+        "image": "/RECO/image/TheBoys.jpg"
     },
     {
         "name": "The Queen's Gambit",
         "description": "The Queen's Gambit raconte l'histoire de Beth Harmon, une prodige des échecs, alors qu'elle lutte contre ses démons personnels et gravit les échelons du monde des échecs.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/6/69/The_Queen%27s_Gambit_title_card.png"
+        "image": "/RECO/image/TheQueensGambit.jpg"
     },
     {
         "name": "Atlanta",
         "description": "Atlanta suit Earn et son cousin Paper Boi alors qu'ils naviguent dans la scène musicale d'Atlanta tout en faisant face à des défis sociaux et personnels.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/7/7e/Atlanta_season_1.jpg"
+        "image": "/RECO/image/Atlanta.jpg"
     },
     {
         "name": "Atypical",
         "description": "Atypical est une série qui suit Sam, un adolescent autiste, dans sa quête d'indépendance et d'amour, tout en explorant les dynamiques familiales.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/5/5a/Atypical_title_card.png"
+        "image": "/RECO/image/Atypical.jpg"
     },
     {
         "name": "Battlestar Galactica",
         "description": "Battlestar Galactica est une série de science-fiction qui suit les derniers survivants de l'humanité en fuite après une attaque des Cylons.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/4/4e/Battlestar_Galactica_intro.jpg"
+        "image": "/RECO/image/BattlestarGalactica.jpg"
     },
     {
         "name": "Bloodline",
         "description": "Bloodline explore les secrets et les mensonges d'une famille apparemment parfaite vivant dans les Keys de Floride.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/6/6b/Bloodline_Netflix.jpg"
+        "image": "/RECO/image/Bloodline.jpg"
     },
     {
         "name": "Watchmen",
         "description": "Watchmen est une série qui revisite l'univers du roman graphique, explorant les tensions raciales et les super-héros dans une société dystopique.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/a/a2/Watchmen_HBO.jpg"
+        "image": "/RECO/image/Watchmen.jpg"
     },
     {
         "name": "The Big Bang Theory",
         "description": "The Big Bang Theory est une sitcom qui suit un groupe de scientifiques excentriques et leurs interactions hilarantes avec leurs amis et voisins.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/6/6e/The_Big_Bang_Theory_title_card.jpg"
+        "image": "/RECO/image/TheBigBangTheory.jpg"
     },
     {
         "name": "Buffy the Vampire Slayer",
         "description": "Buffy Summers combat les vampires, les démons et les forces du mal tout en jonglant avec sa vie d'adolescente.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/1/1a/Buffy_the_Vampire_Slayer_title_card.jpg"
+        "image": "/RECO/image/BuffytheVampireSlayer.jpg"
     },
     {
         "name": "Dark",
         "description": "Dark est une série allemande de science-fiction qui explore les mystères du voyage dans le temps et les secrets d'une petite ville.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3c/Dark_Netflix_Series.jpg"
+        "image": "/RECO/image/Dark.jpg"
     },
     {
         "name": "Desperate Housewives",
         "description": "Desperate Housewives suit la vie de femmes vivant dans une banlieue tranquille, révélant leurs secrets et leurs drames.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/4/4d/Desperate_Housewives_title_card.jpg"
+        "image": "/RECO/image/DesperateHousewives.jpg"
     },
     {
         "name": "Downton Abbey",
         "description": "Downton Abbey explore la vie de la famille Crawley et de leurs domestiques dans une maison de campagne anglaise au début du XXe siècle.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/8/8e/Downton_Abbey_title_card.jpg"
+        "image": "/RECO/image/DowntonAbbey.jpg"
     },
     {
         "name": "Emily in Paris",
         "description": "Emily in Paris suit une jeune Américaine qui déménage à Paris pour travailler dans une agence de marketing, découvrant la culture française.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3f/Emily_in_Paris_title_card.jpg"
+        "image": "/RECO/image/EmilyinParis.jpg"
     },
     {
         "name": "For All Mankind",
         "description": "For All Mankind imagine un monde où la course à l'espace entre les États-Unis et l'Union soviétique ne s'est jamais arrêtée.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/5/5e/For_All_Mankind_title_card.jpg"
+        "image": "/RECO/image/ForAllMankind.jpg"
     },
     {
         "name": "Foundation",
         "description": "Foundation est une série de science-fiction basée sur les romans d'Isaac Asimov, explorant la chute et la renaissance d'un empire galactique.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/4/4f/Foundation_Apple_TV%2B_title_card.jpg"
+        "image": "/RECO/image/Foundation.jpg"
     },
     {
         "name": "Friends",
         "description": "Friends est une sitcom emblématique qui suit un groupe d'amis vivant à New York et leurs aventures hilarantes.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/f/f6/Friends_title_card.jpg"
+        "image": "/RECO/image/Friends.jpg"
     },
     {
         "name": "Girls",
         "description": "Girls suit un groupe de jeunes femmes à New York alors qu'elles naviguent dans les défis de la vie adulte.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/4/45/Girls_HBO_title_card.jpg"
+        "image": "/RECO/image/Girls.jpg"
     },
     {
         "name": "Homeland",
         "description": "Homeland est un thriller qui suit une agente de la CIA enquêtant sur des menaces terroristes tout en luttant contre ses propres démons.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3e/Homeland_title_card.jpg"
+        "image": "/RECO/image/Homeland.jpg"
     },
     {
         "name": "House of Cards",
         "description": "House of Cards est une série politique qui suit Frank Underwood, un politicien impitoyable prêt à tout pour atteindre le pouvoir.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3f/House_of_Cards_title_card.jpg"
+        "image": "/RECO/image/HouseofCards.jpg"
     },
     {
         "name": "Killing Eve",
         "description": "Killing Eve suit une agente du MI6 et une tueuse à gages dans un jeu de chat et de souris captivant.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/6/6b/Killing_Eve_title_card.jpg"
+        "image": "/RECO/image/KillingEve.jpg"
     },
     {
         "name": "Lost",
         "description": "Lost suit les survivants d'un crash d'avion sur une île mystérieuse remplie de secrets et de dangers.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/8/8e/Lost_title_card.jpg"
+        "image": "/RECO/image/Lost.jpg"
     },
     {
         "name": "Lupin",
         "description": "Lupin suit Assane Diop, un gentleman cambrioleur inspiré par les aventures d'Arsène Lupin, dans sa quête de justice.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/2/2e/Lupin_Netflix_title_card.jpg"
+        "image": "/RECO/image/Lupin.jpg"
     },
     {
         "name": "Mad Men",
         "description": "Mad Men explore le monde de la publicité dans les années 1960 à travers la vie de Don Draper et ses collègues.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/6/6f/Mad_Men_title_card.jpg"
+        "image": "/RECO/image/MadMen.jpg"
     },
     {
         "name": "Maid",
         "description": "Maid suit une jeune mère qui lutte pour reconstruire sa vie après avoir quitté une relation abusive.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/5/5b/Maid_Netflix_title_card.jpg"
+        "image": "/RECO/image/Maid.jpg"
     },
     {
         "name": "Mare of Easttown",
         "description": "Mare of Easttown est une série policière qui suit une détective enquêtant sur un meurtre dans une petite ville.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/7/7e/Mare_of_Easttown_title_card.jpg"
+        "image": "/RECO/image/MareofEasttown.jpg"
     },
     {
         "name": "Mindhunter",
         "description": "Mindhunter suit deux agents du FBI qui explorent la psychologie des tueurs en série pour résoudre des crimes.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/4/4e/Mindhunter_title_card.jpg"
+        "image": "/RECO/image/Mindhunter.jpg"
     },
     {
         "name": "Mr. Robot",
         "description": "Mr. Robot suit un hacker talentueux recruté par un groupe anarchiste pour renverser les grandes corporations.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/6/6d/Mr._Robot_title_card.jpg"
+        "image": "/RECO/image/MrRobot.jpg"
     },
     {
         "name": "Narcos",
         "description": "Narcos retrace l'histoire des cartels de drogue en Colombie et la lutte des autorités pour les démanteler.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/7/7b/Narcos_title_card.jpg"
+        "image": "/RECO/image/Narcos.jpg"
     },
     {
         "name": "Sense8",
         "description": "Sense8 suit huit individus connectés mentalement à travers le monde, partageant leurs expériences et leurs compétences.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3d/Sense8_title_card.jpg"
+        "image": "/RECO/image/Sense8.jpg"
     },
     {
         "name": "Sex and the City",
         "description": "Sex and the City suit quatre amies à New York explorant l'amour, l'amitié et la vie urbaine.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3f/Sex_and_the_City_title_card.jpg"
+        "image": "/RECO/image/SexandtheCity.jpg"
     },
     {
         "name": "Sex Education",
         "description": "Sex Education suit un adolescent et sa mère sexologue alors qu'il ouvre une clinique de thérapie sexuelle dans son lycée.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3d/Sex_Education_title_card.jpg"
+        "image": "/RECO/image/SexEducation.jpg"
     },
     {
         "name": "Sherlock",
         "description": "Sherlock est une adaptation moderne des aventures de Sherlock Holmes et de son fidèle ami, le Dr Watson.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/6/60/Sherlock_title_card.jpg"
+        "image": "/RECO/image/Sherlock.jpg"
     },
     {
         "name": "Squid Game",
         "description": "Squid Game est une série sud-coréenne où des participants jouent à des jeux mortels pour remporter une énorme somme d'argent.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3c/Squid_Game_title_card.jpg"
+        "image": "/RECO/image/SquidGame.jpg"
     },
     {
         "name": "Succession",
         "description": "Succession suit une famille puissante et dysfonctionnelle luttant pour le contrôle de leur empire médiatique.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3e/Succession_title_card.jpg"
+        "image": "/RECO/image/Succession.jpg"
     },
     {
         "name": "The Bear",
         "description": "The Bear suit un jeune chef qui retourne à Chicago pour gérer le restaurant familial après une tragédie.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/5/5e/The_Bear_title_card.jpg"
+        "image": "/RECO/image/TheBear.jpg"
     },
     {
         "name": "The Leftovers",
         "description": "The Leftovers explore les conséquences émotionnelles et sociales après la disparition soudaine de 2% de la population mondiale.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/8/8e/The_Leftovers_title_card.jpg"
+        "image": "/RECO/image/TheLeftovers.jpg"
     },
     {
         "name": "The Lord of the Rings: The Rings of Power",
         "description": "The Rings of Power explore les événements de la Terre du Milieu avant les aventures de Frodon et de l'Anneau Unique.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/7/7e/The_Rings_of_Power_title_card.jpg"
+        "image": "/RECO/image/TheLordoftheRingsTheRingsofPower.jpg"
     },
     {
         "name": "The Marvelous Mrs. Maisel",
         "description": "The Marvelous Mrs. Maisel suit une femme au foyer des années 1950 qui se lance dans une carrière de stand-up.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3e/The_Marvelous_Mrs._Maisel_title_card.jpg"
+        "image": "/RECO/image/TheMarvelousMrsMaisel.jpg"
     },
     {
         "name": "The Sandman",
         "description": "The Sandman est une adaptation des bandes dessinées de Neil Gaiman, explorant les royaumes des rêves et de la réalité.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/4/4e/The_Sandman_title_card.jpg"
+        "image": "/RECO/image/TheSandman.jpg"
     },
     {
         "name": "The Walking Dead",
         "description": "The Walking Dead suit un groupe de survivants dans un monde post-apocalyptique envahi par des zombies.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/1/1b/The_Walking_Dead_title_card.jpg"
+        "image": "/RECO/image/TheWalkingDead.jpg"
     },
     {
         "name": "The Wire",
         "description": "The Wire explore les différents aspects de la ville de Baltimore, de la police aux trafiquants de drogue.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3a/The_Wire_title_card.jpg"
+        "image": "/RECO/image/TheWire.jpg"
     },
     {
         "name": "True Detective",
         "description": "True Detective est une série d'anthologie qui suit des enquêtes complexes menées par des détectives tourmentés.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3e/True_Detective_title_card.jpg"
-    },
-    {
-        "name": "Watchmen",
-        "description": "Watchmen revisite l'univers du roman graphique, explorant les tensions raciales et les super-héros dans une société dystopique.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/a/a2/Watchmen_HBO.jpg"
+        "image": "/RECO/image/TrueDetective.jpg"
     },
     {
         "name": "Unorthodox",
         "description": "Unorthodox suit une jeune femme qui quitte sa communauté juive ultra-orthodoxe à Brooklyn.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/3d/Unorthodox.jpg"
+        "image": "/RECO/image/Unorthodox.jpg"
     },
-    {"name": "Upload",
+    {
+        "name": "Upload",
         "description": "Upload est une comédie de science-fiction qui suit un homme qui se retrouve dans un au-delà numérique après sa mort.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/4/4f/Upload_title_card.jpg"
+        "image": "/RECO/image/Upload.jpg"
     },
     {
         "name": "Vikings",
         "description": "Vikings suit les aventures du légendaire chef viking Ragnar Lothbrok et sa descendance.",
-        "image": "https://upload.wikimedia.org/wikipedia/en/0/0b/Vikings_title_card.jpg"
+        "image": "/RECO/image/Vikings.jpg"
     }
 ]

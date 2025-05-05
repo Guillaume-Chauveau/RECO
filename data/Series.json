@@ -258,5 +258,19 @@
         "name": "Watchmen",
         "description": "Watchmen revisite l'univers du roman graphique, explorant les tensions raciales et les super-héros dans une société dystopique.",
         "image": "https://upload.wikimedia.org/wikipedia/en/a/a2/Watchmen_HBO.jpg"
+    },
+    {
+        "name": "Unorthodox",
+        "description": "Unorthodox suit une jeune femme qui quitte sa communauté juive ultra-orthodoxe à Brooklyn.",
+        "image": "https://upload.wikimedia.org/wikipedia/en/3/3d/Unorthodox.jpg"
+    },
+    {"name": "Upload",
+        "description": "Upload est une comédie de science-fiction qui suit un homme qui se retrouve dans un au-delà numérique après sa mort.",
+        "image": "https://upload.wikimedia.org/wikipedia/en/4/4f/Upload_title_card.jpg"
+    },
+    {
+        "name": "Vikings",
+        "description": "Vikings suit les aventures du légendaire chef viking Ragnar Lothbrok et sa descendance.",
+        "image": "https://upload.wikimedia.org/wikipedia/en/0/0b/Vikings_title_card.jpg"
     }
 ]

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { selectedSeries, sliders } from './store.js'
+import seriesData from '../public/data/Series.json'
 
 const df = ref([]) // Tableau réactif pour stocker les données du CSV
 const similaritiesTable = ref([]) // Tableau des similarités
@@ -128,6 +129,12 @@ function executerCalculs() {
   }
 }
 
+// Fonction pour récupérer l'image d'une série
+function getSeriesImage(seriesName) {
+  const series = seriesData.find(s => s.name === seriesName)
+  return series ? series.image : ''
+}
+
 // Charger les données CSV et exécuter les calculs au montage
 onMounted(async () => {
   await loadCSV('/RECO/data/characteristics.csv')
@@ -172,6 +179,7 @@ watch(selectedSeries, () => {
   <table v-if="similaritiesTable.length > 0 && selectedSeries.length === 1">
     <thead>
       <tr>
+        <th>Image</th> <!-- Nouvelle colonne pour l'image -->
         <th>Série</th>
         <th>Score de Similarité (%)</th>
         <th>llama_Synopsis (%)</th>
@@ -181,6 +189,13 @@ watch(selectedSeries, () => {
     </thead>
     <tbody>
       <tr v-for="item in similaritiesTable" :key="item.name">
+        <td>
+          <img 
+            :src="getSeriesImage(item.name)" 
+            alt="Image de la série" 
+            class="serie-image" 
+          />
+        </td>
         <td>{{ item.name }}</td>
         <td>{{ (item.similarity * 100).toFixed(2) }}</td>
         <td>{{ (item.details.llama_Synopsis * 100).toFixed(2) }}</td>

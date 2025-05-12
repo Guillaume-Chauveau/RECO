@@ -128,6 +128,22 @@ function executerCalculs() {
   }
 }
 
+// Fonction pour obtenir l'image d'une série
+function getSerieImage(serieName) {
+  const serie = selectedSeries.value.find(s => s.name === serieName)
+  return serie ? serie.image : null
+}
+
+// Fonction pour afficher la description d'une série
+function showDescription(serieName) {
+  const serie = selectedSeries.value.find(s => s.name === serieName)
+  if (serie && serie.description) {
+    alert(`Description de "${serie.name}": ${serie.description}`)
+  } else {
+    alert("Description non disponible pour cette série.")
+  }
+}
+
 // Charger les données CSV et exécuter les calculs au montage
 onMounted(async () => {
   await loadCSV('/RECO/data/characteristics.csv')
@@ -172,20 +188,33 @@ watch(selectedSeries, () => {
   <table v-if="similaritiesTable.length > 0 && selectedSeries.length === 1">
     <thead>
       <tr>
+        <th>Image</th>
         <th>Série</th>
         <th>Score de Similarité (%)</th>
         <th>llama_Synopsis (%)</th>
         <th>Audio (%)</th>
         <th>Vidéo (%)</th>
+        <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="item in similaritiesTable" :key="item.name">
+        <td>
+          <img 
+            :src="getSerieImage(item.name)" 
+            alt="Image de la série" 
+            class="serie-image" 
+            v-if="getSerieImage(item.name)" 
+          />
+        </td>
         <td>{{ item.name }}</td>
         <td>{{ (item.similarity * 100).toFixed(2) }}</td>
         <td>{{ (item.details.llama_Synopsis * 100).toFixed(2) }}</td>
         <td>{{ (item.details.audio * 100).toFixed(2) }}</td>
         <td>{{ (item.details.vidéo * 100).toFixed(2) }}</td>
+        <td>
+          <button @click="showDescription(item.name)">Voir la description</button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -234,5 +263,11 @@ td {
   max-width: 100px;
   max-height: 150px;
   margin-bottom: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  font-size: 0.9em;
+  cursor: pointer;
 }
 </style>

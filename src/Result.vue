@@ -45,107 +45,10 @@ async function loadCSV(url) {
   }
 }
 
-// Fonction pour extraire les caractéristiques d'une série
-function get_features(serie_name, features, df) {
-  const feats = []
-  const feature_names = {
-    'llama_Synopsis': [1, 51],
-    'audio': [51, 56],
-    'vidéo': [56, Object.keys(df.value[0]).length]
-  }
-
-  if (features in feature_names) {
-    const df_serie = df.value.filter(row => row['name'] === serie_name)
-    if (df_serie.length > 0) {
-      const idx = feature_names[features]
-      const keys = Object.keys(df_serie[0]).slice(idx[0], idx[1])
-      feats.push(...keys.map(key => parseFloat(df_serie[0][key]) || 0))
-    }
-  } else {
-    console.error("Nom de caractéristique inconnu")
-  }
-
-  return feats
-}
-
-// Fonction pour calculer la similarité cosinus
-function cosine_similarity(vecA, vecB) {
-  const dotProduct = vecA.reduce((sum, value, index) => sum + value * vecB[index], 0)
-  const magnitudeA = Math.sqrt(vecA.reduce((sum, value) => sum + value * value, 0))
-  const magnitudeB = Math.sqrt(vecB.reduce((sum, value) => sum + value * value, 0))
-  return dotProduct / (magnitudeA * magnitudeB)
-}
-
-// Fonction pour calculer les similarités avec toutes les séries
-function calculerSimilaritesPourUneSerie(serie_name) {
-  similaritiesTable.value = df.value.map(row => {
-    const otherSerieName = row['name']
-    if (otherSerieName === serie_name) return null
-
-    const weightedSimilarities = features.map(feature => {
-      const features_1 = get_features(serie_name, feature, df)
-      const features_2 = get_features(otherSerieName, feature, df)
-      const sliderValue = Number(sliders.value[feature]) || 1
-      if (sliderValue === 0) return { similarity: 0, weight: 0 }
-      const similarityScore = cosine_similarity(features_1, features_2) * sliderValue
-      return { similarity: similarityScore, weight: sliderValue }
-    })
-
-    const totalWeight = weightedSimilarities.reduce((sum, item) => sum + item.weight, 0)
-    const averageSimilarity = totalWeight > 0
-      ? weightedSimilarities.reduce((sum, item) => sum + item.similarity, 0) / totalWeight
-      : 0
-
-    return { 
-      name: otherSerieName, 
-      similarity: averageSimilarity, 
-      details: {
-        llama_Synopsis: weightedSimilarities[0].similarity,
-        audio: weightedSimilarities[1].similarity,
-        vidéo: weightedSimilarities[2].similarity
-      }
-    }
-  }).filter(item => item !== null)
-
-  similaritiesTable.value.sort((a, b) => b.similarity - a.similarity)
-}
-
-// Fonction pour comparer deux séries
-function comparerDeuxSeries(serie1, serie2) {
-  const similarities = features.map(feature => {
-    const features_1 = get_features(serie1, feature, df)
-    const features_2 = get_features(serie2, feature, df)
-    return cosine_similarity(features_1, features_2)
-  })
-
-  const averageSimilarity = similarities.reduce((sum, val) => sum + val, 0) / similarities.length
-  comparisonResult.value = { 
-    serie1, 
-    serie2, 
-    similarity: averageSimilarity,
-    details: {
-      llama_Synopsis: similarities[0],
-      audio: similarities[1],
-      vidéo: similarities[2]
-    }
-  }
-}
-
-// Fonction pour exécuter les calculs en fonction des séries sélectionnées
-function executerCalculs() {
-  if (selectedSeries.value.length === 1) {
-    const serieName = selectedSeries.value[0]['name']
-    calculerSimilaritesPourUneSerie(serieName)
-  } else if (selectedSeries.value.length === 2) {
-    const [serie1, serie2] = selectedSeries.value.map(serie => serie['name'])
-    comparerDeuxSeries(serie1, serie2)
-  }
-}
-
 // Fonction pour obtenir l'image d'une série
 function getSerieImage(serieName) {
   const serie = allSeries.value.find(s => s.name === serieName)
-  return serie ? serie.image : null
+  return serie && serie.image ? serie.image : '/path/to/default-image.png' // Image par défaut si aucune image n'est disponible
 }
 
 // Fonction pour afficher la description d'une série
@@ -182,8 +85,8 @@ watch(selectedSeries, () => {
           <td class="checkbox-wrapper-50">
             <div class="cell-content">
               <p class="serie-title">{{ serie.name }}</p>
-              <img :src="getSerieImage(serie.name)" alt="Image de la série" v-if="getSerieImage(serie.name)" class="serie-image" />
-              <p v-if="serie.description">{{ serie.description }}</p>
+              <img :src="getSerieImage(serie.name)" alt="Image de la série" class="serie-image" />
+              <p>{{ allSeries.value.find(s => s.name === serie.name)?.description || "Description non disponible pour cette série" }}</p>
             </div>
           </td>
         </tr>

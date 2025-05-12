@@ -7,8 +7,6 @@ const allSeries = ref([]) // Liste complète des séries avec leurs descriptions
 const similaritiesTable = ref([]) // Tableau des similarités
 const comparisonResult = ref(null) // Résultat de la comparaison
 
-const features = ['llama_Synopsis', 'audio', 'vidéo']
-
 // Fonction pour charger la liste complète des séries
 async function loadAllSeries() {
   try {
@@ -61,6 +59,55 @@ function showDescription(serieName) {
   }
 }
 
+// Fonction pour exécuter les calculs en fonction des séries sélectionnées
+function executerCalculs() {
+  if (selectedSeries.value.length === 1) {
+    const serieName = selectedSeries.value[0].name
+    calculerSimilaritesPourUneSerie(serieName)
+  } else if (selectedSeries.value.length === 2) {
+    const [serie1, serie2] = selectedSeries.value.map(serie => serie.name)
+    comparerDeuxSeries(serie1, serie2)
+  } else {
+    similaritiesTable.value = []
+    comparisonResult.value = null
+  }
+}
+
+// Fonction pour calculer les similarités pour une série
+function calculerSimilaritesPourUneSerie(serieName) {
+  similaritiesTable.value = df.value.map(row => {
+    const otherSerieName = row['name']
+    if (otherSerieName === serieName) return null
+
+    // Exemple de calcul de similarité (ajustez selon vos besoins)
+    const similarity = Math.random() // Remplacez par un vrai calcul
+    return {
+      name: otherSerieName,
+      similarity,
+      details: {
+        llama_Synopsis: similarity * 0.4,
+        audio: similarity * 0.3,
+        vidéo: similarity * 0.3
+      }
+    }
+  }).filter(item => item !== null)
+}
+
+// Fonction pour comparer deux séries
+function comparerDeuxSeries(serie1, serie2) {
+  // Exemple de comparaison (ajustez selon vos besoins)
+  comparisonResult.value = {
+    serie1,
+    serie2,
+    similarity: Math.random(), // Remplacez par un vrai calcul
+    details: {
+      llama_Synopsis: Math.random(),
+      audio: Math.random(),
+      vidéo: Math.random()
+    }
+  }
+}
+
 // Charger les données CSV et la liste complète des séries au montage
 onMounted(async () => {
   await loadAllSeries()
@@ -94,13 +141,6 @@ watch(selectedSeries, () => {
     </table>
   </div>
   <p v-else>Aucune série sélectionnée.</p>
-
-  <h3>Valeurs des sliders :</h3>
-  <ul>
-    <li>Vidéo : {{ sliders.vidéo }}</li>
-    <li>Scénario : {{ sliders.llama_Synopsis }}</li>
-    <li>Audio : {{ sliders.audio }}</li>
-  </ul>
 
   <h3 v-if="selectedSeries.length === 1">Tableau des similarités</h3>
   <table v-if="similaritiesTable.length > 0 && selectedSeries.length === 1">

@@ -130,6 +130,8 @@ function executerCalculs() {
 
 // Fonction pour obtenir l'image d'une série
 function getSerieImage(serieName) {
+  console.log("selectedSeries.value", selectedSeries.value)
+  console.log("serieName", serieName)
   const serie = selectedSeries.value.find(s => s.name === serieName)
   return serie ? serie.image : null
 }

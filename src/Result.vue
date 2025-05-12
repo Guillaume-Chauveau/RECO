@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { selectedSeries, sliders } from './store.js'
+import seriesData from '../public/data/Series.json'
 
 const df = ref([]) // Tableau réactif pour stocker les données du CSV
 const allSeries = ref([]) // Liste complète des séries avec leurs descriptions et images
@@ -108,7 +109,24 @@ function comparerDeuxSeries(serie1, serie2) {
   }
 }
 
-// Charger les données CSV et la liste complète des séries au montage
+// Fonction pour exécuter les calculs en fonction des séries sélectionnées
+function executerCalculs() {
+  if (selectedSeries.value.length === 1) {
+    const serieName = selectedSeries.value[0]['name']
+    calculerSimilaritesPourUneSerie(serieName)
+  } else if (selectedSeries.value.length === 2) {
+    const [serie1, serie2] = selectedSeries.value.map(serie => serie['name'])
+    comparerDeuxSeries(serie1, serie2)
+  }
+}
+
+// Fonction pour récupérer l'image d'une série
+function getSeriesImage(seriesName) {
+  const series = seriesData.find(s => s.name === seriesName)
+  return series ? series.image : ''
+}
+
+// Charger les données CSV et exécuter les calculs au montage
 onMounted(async () => {
   await loadAllSeries()
   await loadCSV('/RECO/data/characteristics.csv')
@@ -159,10 +177,9 @@ watch(selectedSeries, () => {
       <tr v-for="item in similaritiesTable" :key="item.name">
         <td>
           <img 
-            :src="getSerieImage(item.name)" 
+            :src="getSeriesImage(item.name)" 
             alt="Image de la série" 
             class="serie-image" 
-            v-if="getSerieImage(item.name)" 
           />
         </td>
         <td>{{ item.name }}</td>

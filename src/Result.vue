@@ -3,10 +3,24 @@ import { ref, onMounted, watch } from 'vue'
 import { selectedSeries, sliders } from './store.js'
 
 const df = ref([]) // Tableau réactif pour stocker les données du CSV
+const allSeries = ref([]) // Liste complète des séries avec leurs descriptions et images
 const similaritiesTable = ref([]) // Tableau des similarités
 const comparisonResult = ref(null) // Résultat de la comparaison
 
 const features = ['llama_Synopsis', 'audio', 'vidéo']
+
+// Fonction pour charger la liste complète des séries
+async function loadAllSeries() {
+  try {
+    const response = await fetch('/RECO/data/Series.json') // Chemin vers le fichier JSON contenant toutes les séries
+    if (!response.ok) {
+      throw new Error(`Erreur lors du chargement des séries : ${response.statusText}`)
+    }
+    allSeries.value = await response.json()
+  } catch (error) {
+    console.error('Erreur lors du chargement des séries :', error)
+  }
+}
 
 // Fonction pour charger le fichier CSV
 async function loadCSV(url) {
@@ -130,15 +144,13 @@ function executerCalculs() {
 
 // Fonction pour obtenir l'image d'une série
 function getSerieImage(serieName) {
-  console.log("selectedSeries.value", selectedSeries.value)
-  console.log("serieName", serieName)
-  const serie = selectedSeries.value.find(s => s.name === serieName)
+  const serie = allSeries.value.find(s => s.name === serieName)
   return serie ? serie.image : null
 }
 
 // Fonction pour afficher la description d'une série
 function showDescription(serieName) {
-  const serie = selectedSeries.value.find(s => s.name === serieName)
+  const serie = allSeries.value.find(s => s.name === serieName)
   if (serie && serie.description) {
     alert(`Description de "${serie.name}": ${serie.description}`)
   } else {
@@ -146,8 +158,9 @@ function showDescription(serieName) {
   }
 }
 
-// Charger les données CSV et exécuter les calculs au montage
+// Charger les données CSV et la liste complète des séries au montage
 onMounted(async () => {
+  await loadAllSeries()
   await loadCSV('/RECO/data/characteristics.csv')
   executerCalculs()
 })
@@ -169,7 +182,7 @@ watch(selectedSeries, () => {
           <td class="checkbox-wrapper-50">
             <div class="cell-content">
               <p class="serie-title">{{ serie.name }}</p>
-              <img :src="serie.image" alt="Image de la série" v-if="serie.image" class="serie-image" />
+              <img :src="getSerieImage(serie.name)" alt="Image de la série" v-if="getSerieImage(serie.name)" class="serie-image" />
               <p v-if="serie.description">{{ serie.description }}</p>
             </div>
           </td>

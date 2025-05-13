@@ -1,12 +1,25 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { selectedSeries, sliders } from './store.js'
+import seriesData from '../public/data/Series.json'
 
 const df = ref([]) // Tableau réactif pour stocker les données du CSV
+const allSeries = ref([]) // Liste complète des séries avec leurs descriptions et images
 const similaritiesTable = ref([]) // Tableau des similarités
 const comparisonResult = ref(null) // Résultat de la comparaison
 
-const features = ['llama_Synopsis', 'audio', 'vidéo']
+// Fonction pour charger la liste complète des séries
+async function loadAllSeries() {
+  try {
+    const response = await fetch('/RECO/data/Series.json') // Chemin vers le fichier JSON contenant toutes les séries
+    if (!response.ok) {
+      throw new Error(`Erreur lors du chargement des séries : ${response.statusText}`)
+    }
+    allSeries.value = await response.json()
+  } catch (error) {
+    console.error('Erreur lors du chargement des séries :', error)
+  }
+}
 
 // Fonction pour charger le fichier CSV
 // Cette fonction charge un fichier CSV à partir d'une URL donnée, le parse et stocke les données dans le tableau réactif `df`.
@@ -42,18 +55,14 @@ function get_features(serie_name, features, df) {
     'vidéo': [56, Object.keys(df.value[0]).length]
   }
 
-  if (features in feature_names) {
-    const df_serie = df.value.filter(row => row['name'] === serie_name)
-    if (df_serie.length > 0) {
-      const idx = feature_names[features]
-      const keys = Object.keys(df_serie[0]).slice(idx[0], idx[1])
-      feats.push(...keys.map(key => parseFloat(df_serie[0][key]) || 0))
-    }
+// Fonction pour afficher la description d'une série
+function showDescription(serieName) {
+  const serie = allSeries.value.find(s => s.name === serieName)
+  if (serie && serie.description) {
+    alert(`Description de "${serie.name}": ${serie.description}`)
   } else {
-    console.error("Nom de caractéristique inconnu")
+    alert("Description non disponible pour cette série.")
   }
-
-  return feats
 }
 
 // Fonction pour calculer la similarité cosinus
@@ -68,56 +77,37 @@ function cosine_similarity(vecA, vecB) {
 // Fonction pour calculer les similarités avec toutes les séries
 // Cette fonction calcule les similarités entre une série donnée et toutes les autres séries dans le tableau `df`.
 function calculerSimilaritesPourUneSerie(serie_name) {
+
   similaritiesTable.value = df.value.map(row => {
     const otherSerieName = row['name']
-    if (otherSerieName === serie_name) return null
+    if (otherSerieName === serieName) return null
 
-    const weightedSimilarities = features.map(feature => {
-      const features_1 = get_features(serie_name, feature, df)
-      const features_2 = get_features(otherSerieName, feature, df)
-      const sliderValue = Number(sliders.value[feature]) || 1
-      if (sliderValue === 0) return { similarity: 0, weight: 0 }
-      const similarityScore = cosine_similarity(features_1, features_2) * sliderValue
-      return { similarity: similarityScore, weight: sliderValue }
-    })
-
-    const totalWeight = weightedSimilarities.reduce((sum, item) => sum + item.weight, 0)
-    const averageSimilarity = totalWeight > 0
-      ? weightedSimilarities.reduce((sum, item) => sum + item.similarity, 0) / totalWeight
-      : 0
-
-    return { 
-      name: otherSerieName, 
-      similarity: averageSimilarity, 
+    // Exemple de calcul de similarité (ajustez selon vos besoins)
+    const similarity = Math.random() // Remplacez par un vrai calcul
+    return {
+      name: otherSerieName,
+      similarity,
       details: {
-        llama_Synopsis: weightedSimilarities[0].similarity,
-        audio: weightedSimilarities[1].similarity,
-        vidéo: weightedSimilarities[2].similarity
+        llama_Synopsis: similarity * 0.4,
+        audio: similarity * 0.3,
+        vidéo: similarity * 0.3
       }
     }
   }).filter(item => item !== null)
-
-  similaritiesTable.value.sort((a, b) => b.similarity - a.similarity)
 }
 
 // Fonction pour comparer deux séries
 // Cette fonction calcule la similarité moyenne entre deux séries sélectionnées en utilisant les caractéristiques définies.
 function comparerDeuxSeries(serie1, serie2) {
-  const similarities = features.map(feature => {
-    const features_1 = get_features(serie1, feature, df)
-    const features_2 = get_features(serie2, feature, df)
-    return cosine_similarity(features_1, features_2)
-  })
-
-  const averageSimilarity = similarities.reduce((sum, val) => sum + val, 0) / similarities.length
-  comparisonResult.value = { 
-    serie1, 
-    serie2, 
-    similarity: averageSimilarity,
+  // Exemple de comparaison (ajustez selon vos besoins)
+  comparisonResult.value = {
+    serie1,
+    serie2,
+    similarity: Math.random(), // Remplacez par un vrai calcul
     details: {
-      llama_Synopsis: similarities[0],
-      audio: similarities[1],
-      vidéo: similarities[2]
+      llama_Synopsis: Math.random(),
+      audio: Math.random(),
+      vidéo: Math.random()
     }
   }
 }
@@ -134,9 +124,16 @@ function executerCalculs() {
   }
 }
 
+// Fonction pour récupérer l'image d'une série
+function getSeriesImage(seriesName) {
+  const series = seriesData.find(s => s.name === seriesName)
+  return series ? series.image : ''
+}
+
 // Charger les données CSV et exécuter les calculs au montage
 // Cette fonction est exécutée lorsque le composant est monté. Elle charge les données CSV et exécute les calculs initiaux.
 onMounted(async () => {
+  await loadAllSeries()
   await loadCSV('/RECO/data/characteristics.csv')
   executerCalculs()
 })
@@ -159,8 +156,8 @@ watch(selectedSeries, () => {
           <td class="checkbox-wrapper-50">
             <div class="cell-content">
               <p class="serie-title">{{ serie.name }}</p>
-              <img :src="serie.image" alt="Image de la série" v-if="serie.image" class="serie-image" />
-              <p v-if="serie.description">{{ serie.description }}</p>
+              <img :src="getSerieImage(serie.name)" alt="Image de la série" class="serie-image" />
+              <p>{{ allSeries.value.find(s => s.name === serie.name)?.description || "Description non disponible pour cette série" }}</p>
             </div>
           </td>
         </tr>
@@ -169,31 +166,36 @@ watch(selectedSeries, () => {
   </div>
   <p v-else>Aucune série sélectionnée.</p>
 
-  <h3>Valeurs des sliders :</h3>
-  <ul>
-    <li>Vidéo : {{ sliders.vidéo }}</li>
-    <li>Scénario : {{ sliders.llama_Synopsis }}</li>
-    <li>Audio : {{ sliders.audio }}</li>
-  </ul>
-
   <h3 v-if="selectedSeries.length === 1">Tableau des similarités</h3>
   <table v-if="similaritiesTable.length > 0 && selectedSeries.length === 1">
     <thead>
       <tr>
+        <th>Image</th>
         <th>Série</th>
         <th>Score de Similarité (%)</th>
         <th>llama_Synopsis (%)</th>
         <th>Audio (%)</th>
         <th>Vidéo (%)</th>
+        <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="item in similaritiesTable" :key="item.name">
+        <td>
+          <img 
+            :src="getSeriesImage(item.name)" 
+            alt="Image de la série" 
+            class="serie-image" 
+          />
+        </td>
         <td>{{ item.name }}</td>
         <td>{{ (item.similarity * 100).toFixed(2) }}</td>
         <td>{{ (item.details.llama_Synopsis * 100).toFixed(2) }}</td>
         <td>{{ (item.details.audio * 100).toFixed(2) }}</td>
         <td>{{ (item.details.vidéo * 100).toFixed(2) }}</td>
+        <td>
+          <button @click="showDescription(item.name)">Voir la description</button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -242,5 +244,11 @@ td {
   max-width: 100px;
   max-height: 150px;
   margin-bottom: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  font-size: 0.9em;
+  cursor: pointer;
 }
 </style>

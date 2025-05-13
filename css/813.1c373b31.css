@@ -1,0 +1,1 @@
+div.texte{background-color:#ffffbf;margin:1em;margin-left:3em;margin-right:3em;font-size:20px}div.texte h3{text-align:left;font-variant:small-caps;margin-left:3em;text-decoration:underline}html.dark div.texte{background-color:#333}p.about{animation-duration:3s;animation-name:slidein}@keyframes slidein{0%{margin-left:100%;width:300%}to{margin-left:0;width:100%}}

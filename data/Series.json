@@ -20,24 +20,9 @@
         "image": "/RECO/image/StrangerThings.jpg"
     },
     {
-        "name": "The Crown",
-        "description": "The Crown retrace la vie de la reine Elizabeth II et les événements marquants de son règne, mêlant drame historique et intrigues politiques.",
-        "image": "/RECO/image/TheCrown.jpg"
-    },
-    {
-        "name": "The Mandalorian",
-        "description": "The Mandalorian suit les aventures d'un chasseur de primes solitaire dans l'univers Star Wars, alors qu'il protège un mystérieux enfant connu sous le nom de Grogu.",
-        "image": "/RECO/image/TheMandalorian.jpg"
-    },
-    {
         "name": "Game of Thrones",
         "description": "Game of Thrones est une série épique qui explore les luttes de pouvoir entre différentes familles nobles pour le contrôle du Trône de Fer dans le royaume de Westeros.",
         "image": "/RECO/image/GameofThrones.jpg"
-    },
-    {
-        "name": "The Witcher",
-        "description": "The Witcher suit Geralt de Riv, un chasseur de monstres solitaire, dans un monde fantastique rempli de magie, de créatures et de conflits politiques.",
-        "image": "/RECO/image/TheWitcher.jpg"
     },
     {
         "name": "The Office (US)",

@@ -29,6 +29,9 @@ jobs:
 
     - name: Install papaparse
       run: npm install papaparse
+    
+    - name: Install emailjs
+      run: npm install emailjs-com
 
     - name: Build project
       run: npm run build
